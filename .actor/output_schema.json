@@ -3,12 +3,12 @@
   "title": "Output of RSS & Atom Feed Reader",
   "properties": {
     "records": {
-      "type": "object",
+      "type": "string",
       "title": "Feed items",
       "template": "{{ links.apiDefaultDatasetUrl }}/items?offset=0&limit=1000&clean=true"
     },
     "overview": {
-      "type": "object",
+      "type": "string",
       "title": "Overview table",
       "template": "{{ links.apiDefaultDatasetUrl }}/items?view=overview"
     }
