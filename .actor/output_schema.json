@@ -50,14 +50,16 @@
             "title": "Full HTML (if requested)"
           }
         }
-      }
+      },
+      "type": "object"
     },
     "overview": {
       "title": "Overview table",
       "template": "{{ links.apiDefaultDatasetUrl }}/items?view=overview",
       "schema": {
         "type": "object"
-      }
+      },
+      "type": "object"
     }
   }
 }
