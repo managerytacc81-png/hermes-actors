@@ -22,4 +22,6 @@ Pay per item returned — no monthly fee. Works with schedulers for periodic bri
 node src/main.js  # or run on Apify with the input above
 ```
 
+Run it on Apify (no setup, free tier): https://apify.com/crescentic_osmosis/feed-reader
+
 MIT-licensed source: https://github.com/managerytacc81-png/hermes-actors
