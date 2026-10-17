@@ -43,5 +43,6 @@
         }
       }
     }
-  }
+  },
+  "output": "./output_schema.json"
 }
