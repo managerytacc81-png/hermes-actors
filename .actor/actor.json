@@ -1,0 +1,76 @@
+{
+    "actorSpecification": 1,
+    "name": "feed-reader",
+    "title": "RSS & Atom Feed Reader — Clean JSON for AI Pipelines",
+    "description": "Pull any RSS/Atom/JSON feed into clean structured JSON. Date-window filters, item limits, full-text option. Per-result pricing — pay only for items returned.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "meta": { "templateId": "js-empty" },
+    "input": {
+        "title": "Feed reader input",
+        "schema": {
+            "actorSpecification": 1,
+            "type": "object",
+            "properties": {
+                "feedUrls": {
+                    "title": "Feed URLs",
+                    "type": "array",
+                    "description": "One or more RSS/Atom/JSON feed URLs.",
+                    "editor": "stringList",
+                    "prefill": ["https://hnrss.org/frontpage"]
+                },
+                "maxItemsPerFeed": {
+                    "title": "Max items per feed",
+                    "type": "integer",
+                    "description": "Hard cap on items returned per feed (0 = no cap).",
+                    "editor": "number",
+                    "default": 100,
+                    "minimum": 0
+                },
+                "sinceDate": {
+                    "title": "Since (ISO date)",
+                    "type": "string",
+                    "description": "Only return items published at/after this date, e.g. 2026-10-01 or 2026-10-01T12:00:00Z. Empty = no lower bound.",
+                    "editor": "textfield"
+                },
+                "untilDate": {
+                    "title": "Until (ISO date)",
+                    "type": "string",
+                    "description": "Only return items published at/before this date. Empty = no upper bound.",
+                    "editor": "textfield"
+                },
+                "includeContent": {
+                    "title": "Include full text/content HTML",
+                    "type": "boolean",
+                    "description": "When off, returns title/link/date/author/categories only (cheaper payloads).",
+                    "editor": "checkbox",
+                    "default": false
+                }
+            },
+            "required": ["feedUrls"]
+        }
+    },
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "title": "Feed items",
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "transformation": {
+                        "fields": ["feedUrl", "title", "link", "publishedAt"]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "feedUrl": { "label": "Feed" },
+                            "title": { "label": "Title" },
+                            "link": { "label": "Link" },
+                            "publishedAt": { "label": "Published" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
