@@ -1,0 +1,47 @@
+{
+  "$schema": "https://apify.com/input-schema",
+  "title": "Feed reader output",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "feedUrl": {
+      "type": "string",
+      "title": "Source feed URL"
+    },
+    "title": {
+      "type": "string",
+      "title": "Item title"
+    },
+    "link": {
+      "type": "string",
+      "title": "Item URL"
+    },
+    "guid": {
+      "type": "string",
+      "title": "Stable item ID"
+    },
+    "publishedAt": {
+      "type": "string",
+      "title": "Published timestamp (ISO 8601)"
+    },
+    "author": {
+      "type": "string",
+      "title": "Author"
+    },
+    "categories": {
+      "type": "array",
+      "title": "Categories/tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contentText": {
+      "type": "string",
+      "title": "Cleaned full text (when includeContent=true)"
+    },
+    "contentHtml": {
+      "type": "string",
+      "title": "Full HTML content (when includeContent=true)"
+    }
+  }
+}
