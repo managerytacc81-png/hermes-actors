@@ -58,7 +58,7 @@ for (const url of feedUrls) {
             followRedirect: true,
             headers: { 'user-agent': 'ApifyFeedReader/0.1 (+https://apify.com/crescentic_osmosis)' },
             responseType: 'text',
-            retry: 2,
+            retry: { limit: 2 },
         }).text();
     } catch (err) {
         log.warning(`Failed to fetch ${url}: ${err.message}`);

@@ -1,7 +1,7 @@
 FROM apify/actor-node:20
-COPY packages.json ./
+COPY package.json ./
 RUN npm --quiet set progress=false \
  && npm install --omit=dev --omit=optional \
- && echo "Installed NPM packages:" && (npm list --omit=dev --all | head -20)
+ && echo "Node:" && node --version
 COPY . ./
 CMD npm start --silent
